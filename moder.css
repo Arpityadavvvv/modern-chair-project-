@@ -1,0 +1,641 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
+
+*{
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #fff;
+  background-color: #1f2029;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: none;
+}
+
+#wrapper{
+    height:100vh;
+    position:relative;
+    overflow: hidden;
+    background-color:#7c83c1;
+   
+}
+
+.container{
+    position:relative;
+    max-width: calc(100% - 40px);
+    width:860px;
+    display:flex;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    padding:100px 0;
+    /* padding-left:35%; */
+    margin:0 auto;
+    z-index: 10;
+    
+  
+    
+}
+
+/* Ye color button wale div me size ki dikkat na ho isliye rkha hai jisse un buttons ka shape isliy aajaye  */
+/* .color-button{
+    max-height:50px;
+    min-width:20px;
+} */
+
+
+.right-content-section{
+    position:relative;
+    width:100%;
+    z-index:10;
+
+    left:65%;
+  
+
+}
+
+/* Faltu styles */
+.title-up {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    line-height: 1.2;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 800;
+    font-size: 34px;
+    line-height: 1.2;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  h4 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 1.2;
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #fff;
+    margin: 0;
+  }
+  h4 span {
+    text-decoration: line-through;
+    font-size: 20px;
+    opacity: 0.6;
+    padding-left: 15px;
+  }
+  h5 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #fff;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    
+    
+  }
+
+
+/* Yha se hum saare radio buttons ko invisible bna denge  */
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked)
+{
+    position:absolute;
+    visibility:hidden;
+}
+
+/* Yha se ab wo colors wali button ke liye kaam krrhe hai  */
+
+ /*Is line ka meaning hai ki color button selected ho 
+ na ho hume uske bad jitne kabeks aaynge unpr ye prperty lgane hai */
+
+.color-button:checked+ label,
+.color-button:not(:checked)+ label {   
+
+    position: relative;
+    
+    transition: all 200ms linear; /* Jo bhi hum isme future me add krenge to uske tranition ke liye hai */
+    border-radius: 4px;
+
+    height:40px;  /*complicay case */
+    width:40px;
+    z-index:10;
+   
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    color: #ffeba7;
+    margin-right: 10px;
+    box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.25);
+
+    left:65%;  /* buttons ko shi position me lane ke liye */
+    
+    /* background-color:green; */
+
+    background-position: center;
+    background-size: cover;   /* Iska mtlb hai ki wo bg pura area cover krlegi */
+    border: 3px solid transparent;
+}
+
+/* Ab is line ka mtlb hai ki agr color button checked hai to phir kya krna hai  */
+
+.color-button:checked+label{
+    border-color: #434343;
+  transform: scale(1.1);
+
+}
+
+/* Ab yha pr button ke andar color lga rhe hai  */
+label.first-color{
+    /* margin-left: 500px; */
+  background-image: url("./images/color1.jpg");
+}
+
+label.color-2{
+    background-image: url("./images/color2.jpg");
+
+}
+
+label.color-3{
+    background-image: url("./images/color3.jpg");
+
+}
+
+label.color-4{
+    background-image: url("./images/color4.jpg");
+
+
+}
+label.color-5{
+    background-image: url("./images/color5.jpg");
+
+}
+
+label.color-6{
+    background-image: url("./images/color6.jpg");
+
+}
+
+
+/* Ab hum chair ki images wali class ko phle property denge  */
+
+.images{
+    position: absolute;
+
+    /* Jo bhi transition hum dekhane wale hai uske liye  */
+    transition: all 550ms linear;
+  transition-delay: 100ms;
+  
+  display:inline-block;
+  border:0;
+
+  /* Ye bg pehle se koi ek color ki chair  rehna chaiye  and uski kuch positioning property  */
+  background-position: center top;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("chair1.png");
+
+  /* Ye sb sirf position ke liye use hui hai  */
+  top: 100px;
+  left:-10px ;
+  width: 500px;
+  height: 410px;
+  z-index:9;
+
+ 
+
+  
+
+
+  /* Abhi usko show nhi krenge */
+  opacity: 0;
+}
+
+
+/* Ab hum konsi chair kis button se aaygi wo bnaynge  */
+.for-color-1:checked~.images.chair-1{
+    opacity:1;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97)both;
+}
+
+.images.chair-2{
+    background-image: url("chair2.png"); /*Iss line se hum bg me chair 2 me ye rhegi or aise hi 3,4,5 me kya kaya picture rhegi */
+}
+
+.for-color-2:checked~.images.chair-2{
+    opacity:1;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97)both;
+}
+
+.images.chair-3{
+    background-image: url("./images/chair3.png");  
+}
+
+.for-color-3:checked~.images.chair-3{
+    opacity:1;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97)both;
+}
+
+.images.chair-4{
+    background-image: url("./images/chair4.png");  
+}
+
+.for-color-4:checked~.images.chair-4{
+    opacity:1;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97)both;
+}
+
+.images.chair-5{
+    background-image: url("./images/chair5.png");  
+}
+
+.for-color-5:checked~.images.chair-5{
+    opacity:1;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97)both;
+}
+
+.images.chair-6{
+    background-image: url("./images/chair6.png");  
+}
+
+.for-color-6:checked~.images.chair-6{
+    opacity:1;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97)both;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+
+/* Ab background ki property set krenge pehle  */
+.backgrounds{
+    position:fixed; /* hume koi scroll nhi chaiye bg me */
+
+    /* ye sb isliye kyoki hum full size krrhe hai  */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+ background-image: linear-gradient(196deg, #f1a9a9, #e66767);  /* Pehle ye wo pink wala gradient hai */
+  transition: all 250ms linear;
+  transition-delay: 300ms;
+ 
+
+  display: block;
+  z-index: 1;
+
+  
+
+}
+  
+/* ab kis me konsa change hoga  */
+.backgrounds.chair-2 {
+    background-image: linear-gradient(196deg, #4c4c4c, #262626);
+    opacity: 0;
+  }
+
+.for-color-2:checked~.backgrounds.chair-2{
+    opacity:1;
+}
+
+.backgrounds.chair-3 {
+    background-image: linear-gradient(196deg, #8a9fb2, #5f7991);
+    opacity: 0;
+  }
+
+.for-color-3:checked~.backgrounds.chair-3{
+    opacity:1;
+}
+
+.backgrounds.chair-4 {
+    background-image: linear-gradient(196deg, #97afc3, #6789a7);
+    opacity: 0;
+  }
+
+
+.for-color-4:checked~.backgrounds.chair-4{
+    opacity:1;
+}
+
+.backgrounds.chair-5 {
+    background-image: linear-gradient(196deg, #afa6a0, #8c7f76);
+    opacity: 0;
+  }
+
+.for-color-5:checked~.backgrounds.chair-5{
+    opacity:1;
+}
+
+.backgrounds.chair-6 {
+    background-image: linear-gradient(196deg, #afa6a0, #8c7f76);
+    opacity: 0;
+  }
+
+.for-color-6:checked~.backgrounds.chair-6{
+    opacity:1;
+}
+
+
+/* Ab description wgera ke liye hum edit krenge  */
+
+.description-section{
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.desc-button:checked+label,
+.desc-button:not(:checked)+label
+{
+    position: relative;
+    transition: all 200ms linear;
+
+    /* ye pta kro  */
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+
+    color: #ffeba7;
+    
+    margin-right: 25px;
+    opacity: 0.5;
+
+     font-family: "Poppins", sans-serif;
+     font-weight: 600;
+     font-size: 18px;
+     line-height: 1.2;
+     color: #fff;
+  
+}
+
+/* jb dono me se koi bhi button checked hoto ye krna  */
+.desc-button:checked+label{
+    opacity:1;
+}
+
+/* Or jo unchecked ho uspr hover  liye ye krne pr ye krna   */
+.desc-button:not(:checked)+label:hover{
+    opacity:0.8;
+}
+
+.desc-drop{
+
+/* Ye hum drop honge na jo texts unke properties set krrh hu  */
+  padding-top: 20px;
+  padding-bottom: 30px;
+  transition: all 250ms linear;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+.desc-drop.two{
+    position: absolute;   /* just iss absolute krne se wo color button or inme distance kam hojayga */
+    top: 20px;    
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+#desc-1:checked~.desc-drop.one{
+/* Jese hi description pr hum click krenge to yeh sb hoga us hidden content ke sath   */
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#desc-2:checked~.desc-drop.two{
+    /*  Jese hi details pr kroge to ye aayga  */
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+
+}
+    
+.dimension-text {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .dimension-text p span {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+
+/* AB button hum isme add krenge  */
+.btn {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 2;
+  height: 48px;
+  border-radius: 4px;
+  width: 210px;
+  letter-spacing: 1px;
+  display: inline-flex;              /*iska kya mtlb */
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: transparent;
+  color: #fff;
+  box-shadow: 0 6px 15px 0 rgba(16, 39, 112, 0.15);
+  transition: all 250ms linear;
+  text-decoration: none;
+  margin-top: 50px;
+}
+
+.icon-cart {
+  position: relative;
+  margin-left: -5px;
+  z-index: 10;
+  display: block;
+  text-align: left;
+
+  left:30.7%;
+  top:30px;
+}
+
+.icon {
+  padding-right: 7px;
+  font-size: 20px;
+}
+
+.btn:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: "";
+  z-index:-1;
+  background-color: #944852;
+  transition: background-color 250ms 300ms ease;
+}
+
+.btn:hover {
+  box-shadow: 0 12px 35px 0 rgba(16, 39, 112, 0.25);
+  background-color: #333;
+}
+
+
+/* Ab kb alg alg bg se ye aata rhega  */
+.for-color-2:checked~.icon-cart .btn:before{
+  background-color: #1a1a1a;
+
+}
+
+.for-color-3:checked~.icon-cart .btn:before{
+  background-color:  #40566e;
+
+}
+
+.for-color-4:checked~.icon-cart .btn:before{
+  background-color:  #5e89b2;
+
+}
+
+.for-color-5:checked~.icon-cart .btn:before{
+  background-color:  #8c7f76;
+
+}
+
+.for-color-6:checked~.icon-cart .btn:before{
+  background-color: #5d6160;
+
+}
+
+
+ /* Its time to add media queries  */
+ @media screen and (max-width:991px)
+ {
+  #wrapper{
+    overflow-y: auto;
+  }
+  .container{
+    margin: 0 auto;
+    text-align: center;
+    /* max-width: calc(100% - 40px); */
+    width: 370px;
+    overflow-y: auto;
+      
+  }
+
+  .right-content-section{
+    margin:0 auto;
+    left:10px;
+    right:10px;
+  }
+
+  label.first-color {
+    margin-left: 0;
+  }
+
+  .icon-cart{
+    margin:0 auto;
+    width: 370px;
+    left:10px;
+    right:10px;
+    top:-10px;
+    text-align: center;
+  }
+
+
+  .images {
+    width: 375px;
+    height: 308px;
+    left: 50%;
+    margin-left: -190px;
+  }
+
+  .desc-btn:checked + label,
+  .desc-btn:not(:checked) + label {
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+  
+  .color-button:checked + label,
+  .color-button:not(:checked) + label {
+    height: 40px;
+    width: 40px;
+    margin: 0px auto;
+    text-align: center;
+    left:10px;
+    right:10px;
+  }
+
+  .mob-margin {
+    margin-top: 320px;
+  }
+
+  .dimension-text {
+    margin: 0 5px;
+  }
+
+ }
+
+ @media screen and (max-width: 575px) {
+  .container {
+    width: 280px;
+    overflow-y: auto;
+  }
+
+  .icon-cart {
+    width: 280px;
+  }
+  .color-button:checked + label,
+  .color-button:not(:checked) + label {
+    height: 30px;
+    width: 30px;
+  }
+  .dimension-text p span {
+    font-size: 24px;
+    line-height: 1.1;
+  }
+  .dimension-text p {
+    font-size: 14px;
+  }
+}
